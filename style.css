@@ -1,0 +1,194 @@
+/* Give the page a clean base so the hero can fill the screen. */
+body {
+	margin: 0;
+	color: #000000;
+	font-family: Arial, sans-serif;
+	background-color: #f4f8fb;
+}
+
+/* Use Intel-inspired blue tones and enough space for the hero content. */
+header {
+	box-sizing: border-box;
+	min-height: 520px;
+	padding: 56px 24px 72px;
+	text-align: center;
+	background: linear-gradient(135deg, #001e3c 0%, #0068b5 58%, #00c7fd 100%);
+}
+
+/* Keep the content readable instead of letting the paragraph become too wide. */
+header > div {
+	max-width: 760px;
+	margin: 0 auto;
+}
+
+/* Resize the supplied SVG logo while preserving its proportions. */
+header img {
+	display: block;
+	width: 180px;
+	height: auto;
+	margin: 0 auto 52px;
+}
+
+/* The pale blue accent makes the headline stand out against the dark blue. */
+h1 {
+	max-width: 700px;
+	margin: 0 auto 22px;
+	color: #d9f6ff;
+	font-size: 48px;
+	line-height: 1.1;
+	font-weight: 700;
+}
+
+/* Keep the subheading large enough to read while maintaining strong contrast. */
+header p {
+	max-width: 620px;
+	margin: 0 auto;
+	color: #ffffff;
+	font-size: 20px;
+	line-height: 1.6;
+}
+
+/* Arrange the milestones on alternating sides of a horizontal timeline. */
+section {
+	position: relative;
+	display: flex;
+	align-items: center;
+	gap: 24px;
+	max-width: none;
+	padding: 70px 24px 180px;
+	overflow-x: auto;
+	scroll-padding-inline: 24px;
+	scroll-snap-type: x mandatory;
+	overscroll-behavior-x: contain;
+	background-color: #e8f4fa;
+}
+
+section::before {
+	position: absolute;
+	top: 50%;
+	right: 24px;
+	left: 24px;
+	height: 4px;
+	content: "";
+	background-color: #0068b5;
+}
+
+section > div {
+	position: relative;
+	z-index: 1;
+	box-sizing: border-box;
+	flex: 0 0 260px;
+	min-height: 290px;
+	padding: 24px;
+	background-color: #ffffff;
+	border-top: 6px solid #00c7fd;
+	box-shadow: 0 4px 12px rgba(0, 30, 60, 0.15);
+	scroll-snap-align: start;
+	transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+section > div:hover {
+	transform: translateY(-8px);
+	box-shadow: 0 10px 20px rgba(0, 30, 60, 0.2);
+}
+
+section > div:nth-child(odd) {
+	align-self: flex-start;
+}
+
+section > div:nth-child(even) {
+	align-self: flex-end;
+}
+
+section h2 {
+	margin: 0 0 8px;
+	color: #0068b5;
+	font-size: 32px;
+}
+
+section h3 {
+	margin: 0 0 14px;
+	color: #001e3c;
+	font-size: 22px;
+}
+
+.timeline-image {
+	display: block;
+	width: 100%;
+	height: 120px;
+	margin: 0 0 14px;
+	object-fit: contain;
+}
+
+section p {
+	max-height: 0;
+	margin: 0;
+	overflow: hidden;
+	opacity: 0;
+	line-height: 1.6;
+	transition: max-height 180ms ease, opacity 180ms ease, margin 180ms ease;
+}
+
+section > div:hover p {
+	max-height: 300px;
+	margin-top: 14px;
+	opacity: 1;
+}
+
+body > p {
+	padding: 0 20px 32px;
+	text-align: center;
+}
+
+/* Reduce the hero scale on narrow screens so the text does not overflow. */
+@media (max-width: 600px) {
+	header {
+		min-height: 460px;
+		padding: 40px 20px 56px;
+	}
+
+	header img {
+		width: 145px;
+		margin-bottom: 38px;
+	}
+
+	h1 {
+		font-size: 36px;
+	}
+
+	header p {
+		font-size: 17px;
+	}
+
+	section {
+		align-items: stretch;
+		flex-direction: column;
+		gap: 0;
+		padding: 48px 20px 24px;
+		overflow-x: visible;
+		scroll-snap-type: none;
+	}
+
+	section::before {
+		top: 0;
+		bottom: 0;
+		left: 10px;
+		width: 4px;
+		height: auto;
+	}
+
+	section > div {
+		width: calc(100% - 28px);
+		margin: 0 0 32px 28px;
+		padding: 24px;
+		flex-basis: auto;
+		min-height: 0;
+		align-self: auto;
+		border-top: 0;
+		border-left: 6px solid #00c7fd;
+	}
+
+	section > div:hover {
+		transform: translateX(6px);
+	}
+}
