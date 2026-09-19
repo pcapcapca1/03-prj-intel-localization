@@ -177,6 +177,38 @@ body > p {
 	margin-bottom: 0;
 }
 
+.sustainability-accordion {
+	position: static;
+	display: block;
+	max-width: 760px;
+	min-height: 0;
+	margin-right: auto;
+	margin-left: auto;
+	padding: 0;
+	background-color: transparent;
+	border: 0;
+	box-shadow: none;
+	scroll-snap-align: none;
+	transition: none;
+}
+
+.sustainability-accordion::before {
+	display: none;
+}
+
+.sustainability-accordion .accordion-item {
+	position: static;
+	min-height: 0;
+	padding: 0;
+	background-color: #ffffff;
+	border: 1px solid rgba(0, 30, 60, 0.15);
+	box-shadow: none;
+}
+
+.sustainability-accordion .accordion-header {
+	margin: 0;
+}
+
 .bootstrap-grid-section > .row,
 .subscription-section > .subscription-content {
 	position: static;
