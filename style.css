@@ -100,6 +100,10 @@ section > div:nth-child(even) {
 	align-self: flex-end;
 }
 
+html[dir="rtl"] section > div:hover {
+	transform: translateY(-8px);
+}
+
 section h2 {
 	margin: 0 0 8px;
 	color: #0068b5;
@@ -270,23 +274,24 @@ body > p {
 	section::before {
 		top: 0;
 		bottom: 0;
-		left: 10px;
+		right: 10px;
+		left: auto;
 		width: 4px;
 		height: auto;
 	}
 
 	section > div {
 		width: calc(100% - 28px);
-		margin: 0 0 32px 28px;
+		margin: 0 28px 32px 0;
 		padding: 24px;
 		flex-basis: auto;
 		min-height: 0;
 		align-self: auto;
 		border-top: 0;
-		border-left: 6px solid #00c7fd;
+		border-right: 6px solid #00c7fd;
 	}
 
 	section > div:hover {
-		transform: translateX(6px);
+		transform: translateX(-6px);
 	}
 }
